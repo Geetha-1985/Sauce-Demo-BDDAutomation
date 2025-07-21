@@ -82,7 +82,6 @@ cd Sauce-Demo-BDDAutomation
 
 #### 2.Install dependencies:
 
-To execute all the tests using Maven:
 
 ```bash
 mvn clean install
@@ -90,6 +89,8 @@ mvn clean install
 
 
 #### 3.Run tests using Maven:
+
+To execute all the tests using Maven:
 
 ```bash
 mvn test
@@ -165,7 +166,7 @@ mvn test
 
 <img width="1875" height="865" alt="image" src="https://github.com/user-attachments/assets/068f78a8-021e-4e4c-b423-dc4de693e001" />
 
-#### failure Screenshot sample
+#### Failure Screenshot sample
 <img width="1862" height="712" alt="image" src="https://github.com/user-attachments/assets/2331e061-bb46-4d7c-8dc3-2613e69d20a4" />
 
 
