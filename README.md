@@ -1,60 +1,32 @@
-# Sauce-Demo-BDDAutomation
-Sauce Demo Automation using Selenium, java, testNG,Cucumber,Extent Report,Maven
+# Sauce Demo Automation Test Suite
 
-This repository contains automated tests for the SauceDemo web application. The tests are implemented using Selenium WebDriver, Java , Cucumber, and TestNG. The tests validate key functionalities on the SauceDemo platform.
 
-- **Selenium WebDriver** - For automating browser interactions.
+This project automates Key test scenarios for [SauceDemo](https://www.saucedemo.com/) using Selenium WebDriver, Java, TestNG, Cucumber BDD, Extent Reports, and Maven.  
+
+
+
+## 📋 Manual test cases :
+
+Manual Test cases sheet can be downloaded here - https://github.com/Geetha-1985/My-project-reports/blob/main/SauceDemo_TestCases.xlsx
+
+
+<img width="532" height="175" alt="image" src="https://github.com/user-attachments/assets/6679fa89-aa58-4c96-be26-75075aff40bb" />
+
+
+
+
+## ✅ Tools Used for Automation
+
+- **Selenium WebDriver** - For automating browser interactions
 - **Java** - Programming language
-- **Cucumber** - For writing readable and maintainable BDD-style tests.
-- **TestNG** - For running tests and managing test execution
-- **Maven** - For project management and dependencies.
-- **ExtentReports** - For generating test execution reports.
-
-## Prerequisites
-
-Ensure the following are installed and configured:
-
-- Java must be installed on your machine.
-- Maven
-- Git
-- ChromeDriver should be installed and set up on your system’s PATH.
+- **Cucumber** - For writing readable and maintainable BDD-style tests
+- **TestNG** - 	Test execution,management and assertions
+- **Maven** - Build tool and dependency management
+- **ExtentReports** - For generating Rick HTML test execution reports
 
 
-## Cloning the Repository
 
-```bash
-git clone https://github.com/your-repo/your-project.git
-cd your-project
-```
-
-## Running the Tests
-
-To execute all the tests using Maven:
-
-```bash
-mvn clean test
-```
-
-To run specific feature files or tags using Cucumber options:
-
-Edit the CucumberTestRunner.java file.Add the tags and uncomment or mention the feature file name in features.
-
-@CucumberOptions(
-			features = "src/test/resources/features",            // Path to feature files
-		    glue = {"stepDefinitions"},                          // Package with step definitions and hooks
-		    plugin = {"pretty", "html:target/cucumber-reports.html"},
-		                
-		         //tags = "@Priority_High" , 
-		         // tags = "@Checkout" ,
-		        //tags = "@Logout" ,
-		        // tags = "@ProductsPage",
-		   
-		    monochrome = true,                                    // Clean console output
-		    dryRun = false                                        // Set true to validate steps without executing
-		)
-
-
-## Folder Structure
+## 📁 	Project Structure
 
 ```
 src/
@@ -66,30 +38,130 @@ src/
 │
 ├── test/
 │   └── java/
-│       ├── stepDefinitions/                 # Step definition files
-│       └── testRunner/
+│       ├── stepDefinitions/       # Step definition files
+│       └── testRunner/            # TestNG/Cucumber runners
 │   └── resources/
 │       └── features/              # Cucumber feature files
-└── target/                        # Generated reports and build files
+└── target/                        # Extent Reports and failure Screenshots
+└── pom.xml                        # Maven configuration
+└── testng.xml                     # Test Execution, Cucumber Runner file path is mentioned here
 
 ```
 
-## Assumptions
 
-- Test data is either hardcoded or stored in property files.
-- Browser tests are executed locally by default.
-- The framework is designed to be easily extendable for parallel execution or grid setup.
+<img width="450" height="892" alt="image" src="https://github.com/user-attachments/assets/e2885803-87c2-42c7-a608-0ca083d78b4c" />
 
-## Test Coverage
 
-- UI Regression Tests
-- Smoke Tests for key flows
-- API validations (if applicable)
-- End-to-End workflow validations
+- ********************************************************************************************************************************
 
-## Notes
 
-- Reports are generated in target folder with name Extentreport.html.
+
+## 🚀 How to Run the Tests
+
+
+### ✅ Prerequisites
+
+Ensure the following are installed and configured:
+
+- Java must be installed on your machine.
+- Maven
+- Chrome Browser (latest recommended)
+- ChromeDriver (compatible with your Chrome version)
+  
+
+### 🔧 Setup Steps
+
+
+#### 1.Clone the repository:
+
+```bash
+git clone https://github.com/Geetha-1985/Sauce-Demo-BDDAutomation.git
+cd Sauce-Demo-BDDAutomation
+```
+
+
+#### 2.Install dependencies:
+
+To execute all the tests using Maven:
+
+```bash
+mvn clean install
+```
+
+
+#### 3.Run tests using Maven:
+
+```bash
+mvn test
+```
+
+
+#### 4.Run tests using testNG.xml file:
+
+- Right click on testNg.xml file , Select Run As - TestNG Suite
+
+<img width="842" height="313" alt="image" src="https://github.com/user-attachments/assets/78a40d97-ab17-4631-a9b0-a186d0fb7739" />
+
+
+
+#### 5.Generate & view reports:
+
+- Reports will be available under /target/ExtentReport.html
+- Failure Screenshots will be under target/screenshots/
+
+- <img width="639" height="174" alt="image" src="https://github.com/user-attachments/assets/91c85fd4-4992-490e-af4a-fd90407c2b74" />
+
+
+
+#### 6.If only specific groups needs to executed, then follow the below steps.
+
+- Edit the CucumberTestRunner.java file under src/test/java/testRunner.
+- Add/uncomment the tags or mention only the feature file name that needs to be run.
+
+<img width="1561" height="424" alt="image" src="https://github.com/user-attachments/assets/fc301b61-21f1-47a1-b7fa-0a6024660f18" />
+
+
+
+- ********************************************************************************************************************************
+
+
+## 🧪 Test Coverage
+
+
+- ✅ Login (valid & invalid credentials)
+- ✅ Products page and Cart operations (add/remove items)
+- ✅ Checkout process
+- ✅ Logout Validation
+
+
+
+## 📌 Notes and Assumptions
+
+
+- Data Driven testing is accomplished using Cucumber Feature files.
+- Test User: standard_user / secret_sauce is used for validating success operations like Checkout completion, Add /remove cart success.
+- Test user: problem_user,error_user / secret_sauce are used for checking unsuccessful operations like add product failure, checkout completion failure etc.
+- Performance case is not covered (performance_glitch_user)
+- Tests written only for Chrome browser.
+
+
+
+## 📸 Reports	
+
+
+- Extent Reports provide screenshots for failure, step-wise status, and execution time.
+- Navigate to target folder for screenshots and ExtentReport.html after test execution for the summary.
+
+-  [Click here and download Extent HTML Report generated by me after executing the tests] [(https://github.com/Geetha-1985/My-project-reports)](https://github.com/Geetha-1985/My-project-reports/blob/main/ExtentReport.html)
+
+
+<img width="1486" height="897" alt="image" src="https://github.com/user-attachments/assets/2132952c-61fc-4c40-a215-0755c03ea785" />
+
+<img width="1875" height="865" alt="image" src="https://github.com/user-attachments/assets/068f78a8-021e-4e4c-b423-dc4de693e001" />
+
+<img width="1862" height="712" alt="image" src="https://github.com/user-attachments/assets/2331e061-bb46-4d7c-8dc3-2613e69d20a4" />
+
+
 
 
 ---
